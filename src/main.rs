@@ -1,15 +1,23 @@
-#[macro_use] extern crate cfg_if;
+#[cfg(target_os = "novusk")]
+compile_error!("Sorry! Novusk can't compile nkmm");
 
-cfg_if! {
-    if #[cfg(target_os = "novusk")] {
-        #![no_std]
-        #![no_main]
+use std::env;
+use std::process::exit;
+
+fn main() {
+    let env_args = env::args().collect();
+    let args: Vec<String> = env_args;
+
+    if args[1] == "build" {
+        println!("Building Novusk Kernel Module...");
+    } else if args[1] == "run" {
+        if args[2] != "" {
+            panic!("Not a valid module");
+        }
+        unimplemented!();
+    } else {
+        println!("{} - Not an argument, use \"build\" or \"run\"", args[1]);
+        exit(0);
     }
 }
-
-#[cfg(not(target_os = "novusk"))]
-fn main() {
-    println!("Hello, world!");
-}
-
 

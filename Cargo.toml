@@ -5,6 +5,8 @@ authors = ["Nathan McMillan <nathanmcmillan54@gmail.com>"]
 edition = "2018"
 description = "A command for compiling and running Novusk Kernel Modules"
 
+[workspace]
+members = [
+    "example/",
+]
 
-[dependencies]
-cfg-if = "1.0.0"
