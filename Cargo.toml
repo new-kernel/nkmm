@@ -1,0 +1,10 @@
+[package]
+name = "nkmm"
+version = "0.1.0"
+authors = ["Nathan McMillan <nathanmcmillan54@gmail.com>"]
+edition = "2018"
+description = "A command for compiling and running Novusk Kernel Modules"
+
+
+[dependencies]
+cfg-if = "1.0.0"
